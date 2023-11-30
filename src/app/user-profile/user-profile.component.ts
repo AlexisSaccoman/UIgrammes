@@ -14,6 +14,7 @@ export class UserProfileComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    console.log("User : ");
     console.log(this.user);
     if(this.user.statut_connexion == 1){
       this.statut = `connected`;
