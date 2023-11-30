@@ -1,0 +1,16 @@
+
+.usersList{
+    width: 80%;
+    height: 80%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+app-user-profile{
+    width: 50%;
+    height: 50px;
+}

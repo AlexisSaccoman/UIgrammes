@@ -1,0 +1,21 @@
+<app-bandeau-notif></app-bandeau-notif>
+<div class="home">
+  <div class="leftHome colHome"></div>
+  <div class="rightHome colHome">
+      <div class="formConnexionContainer">
+          <form (ngSubmit)="onSubmit()" id="formConnexion" #myForm="ngForm">
+              <div class="mb-3">
+                  <label for="login" class="form-label">Login</label>
+                  <input type="text" class="form-control" id="login" aria-describedby="login" name="login" [(ngModel)]="login">
+              </div>
+              
+              <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password">
+              </div>
+      
+              <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+      </div>
+  </div>
+</div>
