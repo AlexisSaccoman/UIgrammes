@@ -7,19 +7,20 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit{
   statut : string = "";
-  @Input() user: any; // Assurez-vous que la structure de votre utilisateur correspond à ce composant
+  identifiant : string = "";
+  
+  @Input() user: any;
 
   constructor(){
 
   }
 
   ngOnInit(): void {
-    console.log("User : ");
-    console.log(this.user);
+    this.identifiant = this.user.identifiant;  
     if(this.user.statut_connexion == 1){
-      this.statut = `connected`;
+      this.statut = `Online`;
     }else{
-      this.statut = `disconnected`;
+      this.statut = `Offline`;
     }
   }
 }

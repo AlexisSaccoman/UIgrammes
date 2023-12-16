@@ -21,6 +21,7 @@ export class BandeauNotifComponent {
 
  
   ngOnInit(): void {
+    this.isVisible = false;
     // Récupérer les données du localStorage
     const bandeauData = localStorage.getItem('bandeauData');
     const infosSession = localStorage.getItem('infosSession');
@@ -39,11 +40,11 @@ export class BandeauNotifComponent {
     }
 
     // on ne l'affiche que pour 5 secondes après on le fait disparaitre
-    /*
+    
     setTimeout(() => {
       this.isVisible = false;
     }, 5000); // en ms
-    */
+    
   }
 
 

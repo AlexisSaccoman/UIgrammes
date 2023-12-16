@@ -37,7 +37,7 @@ export class HomeComponent {
     // Envoi de la requête HTTP pour vérifier les identifiants de connexion donnés
     this.http.get('https://pedago.univ-avignon.fr:3151/login', { params }).subscribe(
       (response: any) => {
-        const data = response.message;
+        const data = response.affichageBandeau.message;
         
         if (data == "ok") {
           // on enregistre dans le local storage le message du bandeau
@@ -48,7 +48,7 @@ export class HomeComponent {
           // infosS est un tableau temporaire pour assigner les données dans le local storage
           const infosS = {
             user : logVal,
-            last_co : response.last_co,
+            last_co : response.affichageBandeau.last_co,
           }
 
           // on met à jour les valeurs user et last_co de la session

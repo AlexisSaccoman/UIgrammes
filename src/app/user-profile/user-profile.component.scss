@@ -5,7 +5,7 @@
     background-color: white;
     //box-shadow: 1px 1px 0px 1px black;
     //box-shadow: 0 0 0 3px black;
-    box-shadow: 0 0 10px 5px #333;
+    //box-shadow: 0 0 10px 5px #333;
 
     padding: 10px 20px;
 
@@ -60,6 +60,14 @@
     //color: green;
     //color: rgb(0, 255, 21);
     color: rgb(0, 255, 21);
+    //text-shadow: rgb(0, 255, 21) 1px 0 10px;
+    text-shadow: 0 0 3px black;
+}
+
+.offline{
+    //color: green;
+    //color: rgb(0, 255, 21);
+    color: rgb(255, 0, 0);
     //text-shadow: rgb(0, 255, 21) 1px 0 10px;
     text-shadow: 0 0 3px black;
 }

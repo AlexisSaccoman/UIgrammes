@@ -1,10 +1,11 @@
 
-<div class="usersList" *ngFor="let user of users">
-    <app-user-profile [user]="user"></app-user-profile>
+
+<div class="usersList">
+    <app-user-profile *ngFor="let user of users" [user]="user"></app-user-profile>
 </div>
 
 <!--
-<div class="usersList">
-    <app-user-profile></app-user-profile>
-</div>
+<ul class="usersList" *ngFor="let user of users">
+    <li>{{user.identifiant}}</li>
+</ul>
 -->

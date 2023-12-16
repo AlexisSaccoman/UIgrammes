@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WebSocketService } from '../web-socket.service';
+import { HttpClient } from '@angular/common/http';
 import { io } from 'socket.io-client';
 
 @Component({
@@ -10,29 +11,63 @@ import { io } from 'socket.io-client';
 export class WallUsersComponent implements OnInit{
 
   users: any[] = [];
+  usersConnected: any[] = [];
+  usersDisconnected: any[] = [];
   statut : string = "";
   socket: any;
 
+  /*
   webSocket : WebSocketService;
-
   constructor(private _webSocket : WebSocketService){
     // Appel du service webSocketService
     this.webSocket = _webSocket;
     console.log('Connexion WebSocket établie.');
   }
+  */
 
-  /*constructor(){
-    // Connexion au serveur pour mise en place webSocket
-    this.socket = io('https://pedago.univ-avignon.fr:3151');
+  constructor(private http: HttpClient) {}
   
-    console.log('Connexion WebSocket établie.');
+
+  trackByUserId(index: number, user: any): string {
+    return user.id; // Remplacez par la propriété unique de l'utilisateur
+  }
+
+  updateUsers(updatedUsers: any[]): void {
+    updatedUsers.forEach(updatedUser => {
+      const existingUserIndex = this.users.findIndex(user => user.id === updatedUser.id);
+      if (existingUserIndex !== -1) {
+        // Mettre à jour l'user existant
+        this.users[existingUserIndex] = updatedUser;
+      } else {
+        // Ajoutez l'utilisateur s'il n'existe pas déjà
+        this.users.push(updatedUser);
+      }
+    });
+  }
+
+  /*ngOnInit(): void {
+    this.http.get<any[]>('https://pedago.univ-avignon.fr:3151/users').subscribe(
+      (data) => {
+        console.log(data);
+        this.users = data;
+      },
+      (error) => {
+        console.error('Error fetching users:', error);
+      }
+    );
   }*/
 
   ngOnInit(): void {
-    this.webSocket.listen('userList').subscribe((data) => {
-      this.users = data;
-      console.log(data);
-    });
+    this.http.get<any>('https://pedago.univ-avignon.fr:3151/users').subscribe(
+      (data) => {
+        this.users = data.users;
+        this.usersConnected = data.usersConnected;
+        this.usersDisconnected = data.usersDisconnected;
+      },
+      (error) => {
+        console.error('Error fetching users:', error);
+      }
+    );
   }
 
 

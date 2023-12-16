@@ -1,4 +1,4 @@
 
 <div class="Wall">
-    <app-publication></app-publication>
+    <app-publication *ngFor="msg user of messages" [msg]="messages"></app-publication>
 </div>
