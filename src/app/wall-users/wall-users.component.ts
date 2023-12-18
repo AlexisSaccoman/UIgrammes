@@ -11,8 +11,6 @@ import { io } from 'socket.io-client';
 export class WallUsersComponent implements OnInit{
 
   users: any[] = [];
-  usersConnected: any[] = [];
-  usersDisconnected: any[] = [];
   statut : string = "";
   socket: any;
 
@@ -45,24 +43,11 @@ export class WallUsersComponent implements OnInit{
     });
   }
 
-  /*ngOnInit(): void {
+  ngOnInit(): void {
     this.http.get<any[]>('https://pedago.univ-avignon.fr:3151/users').subscribe(
       (data) => {
         console.log(data);
         this.users = data;
-      },
-      (error) => {
-        console.error('Error fetching users:', error);
-      }
-    );
-  }*/
-
-  ngOnInit(): void {
-    this.http.get<any>('https://pedago.univ-avignon.fr:3151/users').subscribe(
-      (data) => {
-        this.users = data.users;
-        this.usersConnected = data.usersConnected;
-        this.usersDisconnected = data.usersDisconnected;
       },
       (error) => {
         console.error('Error fetching users:', error);

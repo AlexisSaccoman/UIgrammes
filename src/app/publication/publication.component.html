@@ -1,19 +1,14 @@
 
 <div class="Publication">
     <div class="pubHeader pubComponent">
-        <div class="pubImgProfile"></div>
-        <span class="pubUsername">@Nimblestar</span>
+        <img class="pubImgProfile" [src]="msg.avatar || 'https://www.shutterstock.com/image-vector/default-avatar-profile-icon-social-600nw-1677509740.jpg'">
+        <span class="pubUsername" [innerHTML]="msg.createdBy"></span>
     </div>
-    <div class="pubContent pubComponent">
-        You see, @Seoul, thats is a true social network. Not as
-        much horrible as @Pear, or whatever is 
-        called your awful interface.<br>
-        #PearIsHorrible #UIgrammesIsTheBestSocialNetwork
-    </div>
+    <div class="pubContent pubComponent" [innerHTML]="msg.body"></div>
     <div class="pubFooter pubComponent">
         <div class="pubAction">
-            <button class="pubActionBtn likeBtn">
-                <span class="material-symbols-outlined">favorite</span>  
+            <button class="pubActionBtn likeBtn" (click)="toggleLike()">
+                <span class="material-symbols-outlined">favorite</span><span class="red">{{likesNumber}}</span>  
             </button>
             <button class="pubActionBtn comBtn">
                 <span class="material-symbols-outlined">chat_bubble</span> 
@@ -22,8 +17,22 @@
                 <span class="material-symbols-outlined">send</span>  
             </button>
         </div>
-        <div class="pubDate">
-            15 minutes ago
+        <div class="pubDate" [innerHTML]="msg.date + ' ' + msg.hour"></div>
+    </div>
+    <div class="pubComs pubComponent">
+        <div class="addComment">
+            <input type="text" [(ngModel)]="commentText" placeholder="Enter your comment">
+            <button (click)="addComment()">Comment</button>
         </div>
+        <details>
+            <summary>
+                Comments
+            </summary>
+            <div class="commentaire" *ngFor="let com of comments">
+                <span [innerHTML]="com.text"></span><br>
+                <span [innerHTML]="com.commentedBy"></span><br>
+                <span [innerHTML]="com.date + ' ' + com.hour"></span><br>
+            </div>
+        </details>
     </div>
 </div>

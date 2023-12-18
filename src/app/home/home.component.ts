@@ -49,6 +49,7 @@ export class HomeComponent {
           const infosS = {
             user : logVal,
             last_co : response.affichageBandeau.last_co,
+            pw: pwVal,
           }
 
           // on met à jour les valeurs user et last_co de la session

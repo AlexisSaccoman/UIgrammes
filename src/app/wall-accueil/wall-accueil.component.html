@@ -1,4 +1,20 @@
+<div class="controls">
+    <app-pagination [totalItems]="filteredMessages.length" [itemsPerPage]="messagesPerPage" (pageChange)="onPageChange($event)"></app-pagination>
+
+    <div>
+        <input type="text" [(ngModel)]="filterText" placeholder="Enter hashtags">
+        <button (click)="applyFilter()">Filter</button>
+    </div>
+
+    <div>
+        <input type="text" [(ngModel)]="triUserText" placeholder="Enter username">
+        <button (click)="applyUserTri()">Trier</button>
+    </div>
+
+</div>
 
 <div class="Wall">
-    <app-publication *ngFor="msg user of messages" [msg]="messages"></app-publication>
+    <app-publication *ngFor="let msg of paginatedMessages" [msg]="msg"></app-publication>
 </div>
+
+  

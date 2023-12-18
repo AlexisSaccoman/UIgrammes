@@ -5,7 +5,8 @@
 </div>
 
 <!--
-<ul class="usersList" *ngFor="let user of users">
-    <li>{{user.identifiant}}</li>
+!debug
+<ul class="usersList">
+    <li *ngFor="let user of users" [innerHTML]="user.identifiant"></li>
 </ul>
 -->
