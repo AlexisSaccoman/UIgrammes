@@ -1,7 +1,11 @@
-<div class="Menu">        
+<span class="logoMenu material-symbols-outlined" [ngClass]="{'menuActive': isMenuActive}" (click)="toggleMenu()">menu</span>
+
+<div class="Menu" [ngClass]="{'menuActive': isMenuActive}">        
     <h1 class="appTitle">UIgrammes</h1>
     
     <div class="menuLinkContainer">
+        <span class="material-symbols-outlined white" (click)="toggleMenu()">close</span>
+
         <a class="menuLink" (click)="navigateTo('/login')" routerLink="/login" routerLinkActive="activeMenuLink">
             <span class="material-symbols-outlined">home</span>
             Home

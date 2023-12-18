@@ -21,4 +21,17 @@ export class MenuComponent {
       }
     );
   }
+
+  logout(): void {
+    this.http.get('https://pedago.univ-avignon.fr:3151/logout').subscribe(
+      (response: any) => {
+        this.router.navigate(['/']);
+      },
+      (error) => {
+        console.error('Erreur de la requête :', error);
+      }
+    );
+  }
+
+
 }

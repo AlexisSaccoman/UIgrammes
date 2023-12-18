@@ -17,6 +17,7 @@ import { WallUsersComponent } from './wall-users/wall-users.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { WebSocketService } from './web-socket.service';
 import { PaginationComponent } from './pagination/pagination.component';
+import { MenuNoneComponent } from './menu-none/menu-none.component';
 
 
 const routes: Routes = [
@@ -39,6 +40,7 @@ const routes: Routes = [
     WallUsersComponent,
     UserProfileComponent,
     PaginationComponent,
+    MenuNoneComponent,
   ],
   imports: [
     BrowserModule,

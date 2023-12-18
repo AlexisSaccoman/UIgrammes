@@ -12,7 +12,7 @@ import { NotifService } from '../notif.service';
 export class BandeauNotifComponent {
 
   Message: string = "Welcome on UIgrammes";
-  isVisible: boolean = true;
+  isVisible: boolean = false;
   private messageSubscription: Subscription = new Subscription();
 
   // récupérer le message passé en json afin de l'afficher
@@ -21,7 +21,9 @@ export class BandeauNotifComponent {
 
  
   ngOnInit(): void {
-    this.isVisible = false;
+
+    this.isVisible = true;
+
     // Récupérer les données du localStorage
     const bandeauData = localStorage.getItem('bandeauData');
     const infosSession = localStorage.getItem('infosSession');

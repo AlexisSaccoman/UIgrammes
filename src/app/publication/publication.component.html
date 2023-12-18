@@ -5,9 +5,13 @@
         <span class="pubUsername" [innerHTML]="msg.createdBy"></span>
     </div>
     <div class="pubContent pubComponent" [innerHTML]="msg.body"></div>
+    <img [src]="msg.images.url" class="pubComponent">
     <div class="pubFooter pubComponent">
+        <div class="pubHastags">
+            <span *ngFor="let h of msg.hashtags" class="hashtag" [innerHTML]="h"></span>
+        </div>
         <div class="pubAction">
-            <button class="pubActionBtn likeBtn" (click)="toggleLike()">
+            <button class="pubActionBtn likeBtn" (click)="toggleLike()" [ngClass]="{'isLiked': isLiked}">
                 <span class="material-symbols-outlined">favorite</span><span class="red">{{likesNumber}}</span>  
             </button>
             <button class="pubActionBtn comBtn">
@@ -30,7 +34,7 @@
             </summary>
             <div class="commentaire" *ngFor="let com of comments">
                 <span [innerHTML]="com.text"></span><br>
-                <span [innerHTML]="com.commentedBy"></span><br>
+                <span [innerHTML]="com.commentedBy.user"></span><br>
                 <span [innerHTML]="com.date + ' ' + com.hour"></span><br>
             </div>
         </details>
